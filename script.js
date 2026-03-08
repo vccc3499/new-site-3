@@ -305,7 +305,6 @@ if (servicesGrid) {
   cards.forEach((card, index) => {
     const group = serviceMedia[index] || serviceMedia[0];
     const clips = group.files;
-    const labels = group.labels;
     if (!clips.length) return;
 
     const media = document.createElement("div");
@@ -313,8 +312,6 @@ if (servicesGrid) {
 
     const videoA = document.createElement("video");
     const videoB = document.createElement("video");
-    const subservice = document.createElement("div");
-    subservice.className = "service-media__tag";
 
     [videoA, videoB].forEach((video) => {
       video.muted = true;
@@ -326,43 +323,55 @@ if (servicesGrid) {
       video.setAttribute("muted", "");
       video.setAttribute("playsinline", "");
       video.setAttribute("webkit-playsinline", "");
-      video.setAttribute("preload", "metadata");
+      video.setAttribute("preload", "auto");
       video.setAttribute("aria-label", "Пример выполненных работ");
     });
 
     let clipIndex = 0;
     let activeVideo = videoA;
     let hiddenVideo = videoB;
+    let isSwitching = false;
 
     activeVideo.src = clips[clipIndex];
     activeVideo.classList.add("is-visible");
-    subservice.textContent = labels[0];
 
     media.appendChild(videoA);
     media.appendChild(videoB);
-    media.appendChild(subservice);
     card.prepend(media);
 
     activeVideo.play().catch(() => {});
     card.classList.add("is-active");
 
     setInterval(() => {
+      if (isSwitching) return;
+      isSwitching = true;
+
       clipIndex = (clipIndex + 1) % clips.length;
       hiddenVideo.src = clips[clipIndex];
-      subservice.textContent = labels[clipIndex % labels.length];
+      hiddenVideo.load();
 
-      hiddenVideo.currentTime = 0;
-      hiddenVideo.play().catch(() => {});
+      const doSwitch = () => {
+        hiddenVideo.removeEventListener("canplay", doSwitch);
+        hiddenVideo.currentTime = 0;
+        hiddenVideo.play().catch(() => {});
 
-      requestAnimationFrame(() => {
-        activeVideo.classList.remove("is-visible");
-        hiddenVideo.classList.add("is-visible");
-      });
+        requestAnimationFrame(() => {
+          activeVideo.classList.remove("is-visible");
+          hiddenVideo.classList.add("is-visible");
+        });
 
-      const tmp = activeVideo;
-      activeVideo = hiddenVideo;
-      hiddenVideo = tmp;
-    }, 2200);
+        const tmp = activeVideo;
+        activeVideo = hiddenVideo;
+        hiddenVideo = tmp;
+        isSwitching = false;
+      };
+
+      if (hiddenVideo.readyState >= 2) {
+        doSwitch();
+      } else {
+        hiddenVideo.addEventListener("canplay", doSwitch, { once: true });
+      }
+    }, 2400);
   });
 }
 
