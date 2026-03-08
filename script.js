@@ -249,58 +249,75 @@ ${result.lines.join("\n")}
 const servicesGrid = document.querySelector(".services-grid");
 
 if (servicesGrid) {
-  const videoSets = [
-    [
-      "https://cdn.coverr.co/videos/coverr-construction-worker-masonry-1574/1080p.mp4",
-      "https://cdn.coverr.co/videos/coverr-workers-build-a-wooden-house-1578/1080p.mp4",
-      "https://cdn.coverr.co/videos/coverr-engineer-at-construction-site-1575/1080p.mp4"
-    ],
-    [
-      "https://cdn.coverr.co/videos/coverr-construction-workers-working-at-a-building-site-1579/1080p.mp4",
-      "https://cdn.coverr.co/videos/coverr-working-on-a-construction-site-1577/1080p.mp4",
-      "https://cdn.coverr.co/videos/coverr-pouring-concrete-1576/1080p.mp4"
-    ],
-    [
-      "https://cdn.coverr.co/videos/coverr-renovating-an-apartment-1604/1080p.mp4",
-      "https://cdn.coverr.co/videos/coverr-painting-a-wall-1606/1080p.mp4",
-      "https://cdn.coverr.co/videos/coverr-tiling-a-wall-1605/1080p.mp4"
-    ]
+  const videoPool = [
+    "https://assets.mixkit.co/videos/1439/1439-1080.mp4",
+    "https://assets.mixkit.co/videos/1442/1442-1080.mp4",
+    "https://assets.mixkit.co/videos/1587/1587-1080.mp4",
+    "https://assets.mixkit.co/videos/25591/25591-1080.mp4",
+    "https://assets.mixkit.co/videos/3980/3980-1080.mp4",
+    "https://assets.mixkit.co/videos/4010/4010-1080.mp4",
+    "https://assets.mixkit.co/videos/4019/4019-1080.mp4",
+    "https://assets.mixkit.co/videos/4029/4029-1080.mp4",
+    "https://assets.mixkit.co/videos/4030/4030-1080.mp4",
+    "https://assets.mixkit.co/videos/4046/4046-1080.mp4",
+    "https://assets.mixkit.co/videos/4047/4047-1080.mp4",
+    "https://assets.mixkit.co/videos/41178/41178-1080.mp4"
   ];
 
   const cards = servicesGrid.querySelectorAll(".card");
+  const mediaVideos = [];
 
   cards.forEach((card, index) => {
-    const set = videoSets[index % videoSets.length];
-    if (!set?.length) return;
-
     const media = document.createElement("div");
     media.className = "service-media";
 
     const video = document.createElement("video");
+    const source = videoPool[index % videoPool.length];
+
     video.muted = true;
+    video.defaultMuted = true;
     video.loop = true;
     video.autoplay = true;
     video.playsInline = true;
+    video.setAttribute("autoplay", "");
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
     video.setAttribute("preload", "metadata");
     video.setAttribute("aria-label", "Пример выполненных работ");
-
-    let clipIndex = 0;
-    video.src = set[clipIndex];
+    video.src = source;
     media.appendChild(video);
     card.prepend(media);
 
     video.play().catch(() => {});
+    mediaVideos.push(video);
+  });
+
+  let activeIndex = 0;
+
+  function activateServiceCard(idx) {
+    cards.forEach((card, cardIndex) => {
+      const isActive = cardIndex === idx;
+      card.classList.toggle("is-active", isActive);
+
+      const video = mediaVideos[cardIndex];
+      if (!video) return;
+
+      if (isActive) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }
+
+  if (cards.length > 0) {
+    activateServiceCard(activeIndex);
 
     setInterval(() => {
-      clipIndex = (clipIndex + 1) % set.length;
-      video.classList.add("is-switching");
-
-      setTimeout(() => {
-        video.src = set[clipIndex];
-        video.play().catch(() => {});
-        video.classList.remove("is-switching");
-      }, 260);
-    }, 6500);
-  });
+      activeIndex = (activeIndex + 1) % cards.length;
+      activateServiceCard(activeIndex);
+    }, 2000);
+  }
 }
 

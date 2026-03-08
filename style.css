@@ -456,6 +456,12 @@ img {
 
 .services-grid .card {
   overflow: hidden;
+  transition: .28s ease;
+}
+
+.services-grid .card.is-active {
+  border-color: rgba(166,241,202,0.45);
+  box-shadow: 0 20px 44px rgba(16, 84, 54, 0.36);
 }
 
 .service-media {
@@ -479,12 +485,14 @@ img {
   height: 100%;
   object-fit: cover;
   display: block;
-  opacity: 1;
-  transition: opacity .45s ease;
+  opacity: 0.45;
+  filter: saturate(0.85) contrast(0.92);
+  transition: opacity .35s ease, filter .35s ease;
 }
 
-.service-media video.is-switching {
-  opacity: 0.2;
+.services-grid .card.is-active .service-media video {
+  opacity: 1;
+  filter: saturate(1) contrast(1);
 }
 
 .card__icon {
