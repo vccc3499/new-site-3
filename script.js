@@ -246,3 +246,61 @@ ${result.lines.join("\n")}
   });
 }
 
+const servicesGrid = document.querySelector(".services-grid");
+
+if (servicesGrid) {
+  const videoSets = [
+    [
+      "https://cdn.coverr.co/videos/coverr-construction-worker-masonry-1574/1080p.mp4",
+      "https://cdn.coverr.co/videos/coverr-workers-build-a-wooden-house-1578/1080p.mp4",
+      "https://cdn.coverr.co/videos/coverr-engineer-at-construction-site-1575/1080p.mp4"
+    ],
+    [
+      "https://cdn.coverr.co/videos/coverr-construction-workers-working-at-a-building-site-1579/1080p.mp4",
+      "https://cdn.coverr.co/videos/coverr-working-on-a-construction-site-1577/1080p.mp4",
+      "https://cdn.coverr.co/videos/coverr-pouring-concrete-1576/1080p.mp4"
+    ],
+    [
+      "https://cdn.coverr.co/videos/coverr-renovating-an-apartment-1604/1080p.mp4",
+      "https://cdn.coverr.co/videos/coverr-painting-a-wall-1606/1080p.mp4",
+      "https://cdn.coverr.co/videos/coverr-tiling-a-wall-1605/1080p.mp4"
+    ]
+  ];
+
+  const cards = servicesGrid.querySelectorAll(".card");
+
+  cards.forEach((card, index) => {
+    const set = videoSets[index % videoSets.length];
+    if (!set?.length) return;
+
+    const media = document.createElement("div");
+    media.className = "service-media";
+
+    const video = document.createElement("video");
+    video.muted = true;
+    video.loop = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.setAttribute("preload", "metadata");
+    video.setAttribute("aria-label", "Пример выполненных работ");
+
+    let clipIndex = 0;
+    video.src = set[clipIndex];
+    media.appendChild(video);
+    card.prepend(media);
+
+    video.play().catch(() => {});
+
+    setInterval(() => {
+      clipIndex = (clipIndex + 1) % set.length;
+      video.classList.add("is-switching");
+
+      setTimeout(() => {
+        video.src = set[clipIndex];
+        video.play().catch(() => {});
+        video.classList.remove("is-switching");
+      }, 260);
+    }, 6500);
+  });
+}
+
