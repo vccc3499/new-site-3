@@ -36,8 +36,8 @@ BASES = {
     "putty_paint": "https://cdn.pixabay.com/video/2021/08/16/85346-590746462",
     "putty_finish": "https://cdn.pixabay.com/video/2021/08/16/85349-590746470",
 
-    "paint_walls": "https://cdn.pixabay.com/video/2021/08/16/85346-590746462",
-    "paint_ceiling": "https://cdn.pixabay.com/video/2021/08/16/85349-590746470",
+    "paint_walls": "https://cdn.pixabay.com/video/2021/08/16/85341-590746454",
+    "paint_ceiling": "https://cdn.pixabay.com/video/2021/08/16/85346-590746462",
     "paint_finish": "https://cdn.pixabay.com/video/2021/08/16/85343-590746457",
 
     "tile_laying": "https://cdn.pixabay.com/video/2021/03/09/67461-522170649",
@@ -45,7 +45,7 @@ BASES = {
     "tile_floor": "https://cdn.pixabay.com/video/2020/06/01/40813-426920959",
 
     "elec_cable": "https://cdn.pixabay.com/video/2023/04/19/159674-819378829",
-    "elec_sockets": "https://cdn.pixabay.com/video/2023/04/19/159674-819378829",
+    "elec_sockets": "https://cdn.pixabay.com/video/2021/08/24/86252-593601031",
     "elec_panel": "https://cdn.pixabay.com/video/2016/08/22/4728-179738645",
 
     "plumb_lines": "https://cdn.pixabay.com/video/2016/04/15/2805-162943479",
@@ -64,7 +64,7 @@ BASES = {
 
     "gen_demo": "https://cdn.pixabay.com/video/2015/10/16/1009-142621189",
     "gen_build": "https://cdn.pixabay.com/video/2020/06/01/40813-426920959",
-    "gen_rough": "https://cdn.pixabay.com/video/2015/10/16/1009-142621189",
+    "gen_rough": "https://cdn.pixabay.com/video/2020/05/27/40298-425442300",
 }
 
 TARGETS = {
