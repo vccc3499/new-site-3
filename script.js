@@ -249,30 +249,83 @@ ${result.lines.join("\n")}
 const servicesGrid = document.querySelector(".services-grid");
 
 if (servicesGrid) {
-  const videoPool = [
-    "https://assets.mixkit.co/videos/1439/1439-1080.mp4",
-    "https://assets.mixkit.co/videos/1442/1442-1080.mp4",
-    "https://assets.mixkit.co/videos/1587/1587-1080.mp4",
-    "https://assets.mixkit.co/videos/25591/25591-1080.mp4",
-    "https://assets.mixkit.co/videos/3980/3980-1080.mp4",
-    "https://assets.mixkit.co/videos/4010/4010-1080.mp4",
-    "https://assets.mixkit.co/videos/4019/4019-1080.mp4",
-    "https://assets.mixkit.co/videos/4029/4029-1080.mp4",
-    "https://assets.mixkit.co/videos/4030/4030-1080.mp4",
-    "https://assets.mixkit.co/videos/4046/4046-1080.mp4",
-    "https://assets.mixkit.co/videos/4047/4047-1080.mp4",
-    "https://assets.mixkit.co/videos/41178/41178-1080.mp4"
+  const serviceVideoSets = [
+    [
+      { file: "media/services/apartment-1.mp4", label: "Косметический и капитальный ремонт" },
+      { file: "media/services/apartment-2.mp4", label: "Ремонт кухонь и комнат" },
+      { file: "media/services/apartment-3.mp4", label: "Комплексный ремонт под ключ" }
+    ],
+    [
+      { file: "media/services/house-1.mp4", label: "Частные дома" },
+      { file: "media/services/house-2.mp4", label: "Этапное строительство" },
+      { file: "media/services/house-3.mp4", label: "Пристройки и террасы" }
+    ],
+    [
+      { file: "media/services/bathroom-1.mp4", label: "Плитка в санузле" },
+      { file: "media/services/bathroom-2.mp4", label: "Гидроизоляция" },
+      { file: "media/services/bathroom-3.mp4", label: "Сантехника и отделка" }
+    ],
+    [
+      { file: "media/services/plaster-1.mp4", label: "Штукатурка стен" },
+      { file: "media/services/plaster-2.mp4", label: "Выравнивание плоскостей" },
+      { file: "media/services/plaster-3.mp4", label: "Подготовка поверхности" }
+    ],
+    [
+      { file: "media/services/putty-1.mp4", label: "Шпатлевка под обои" },
+      { file: "media/services/putty-2.mp4", label: "Шпатлевка под покраску" },
+      { file: "media/services/putty-3.mp4", label: "Финишное выравнивание" }
+    ],
+    [
+      { file: "media/services/paint-1.mp4", label: "Покраска стен" },
+      { file: "media/services/paint-2.mp4", label: "Покраска потолка" },
+      { file: "media/services/paint-3.mp4", label: "Финишная окраска" }
+    ],
+    [
+      { file: "media/services/tile-1.mp4", label: "Укладка плитки" },
+      { file: "media/services/tile-2.mp4", label: "Облицовка стен" },
+      { file: "media/services/tile-3.mp4", label: "Плитка на пол" }
+    ],
+    [
+      { file: "media/services/electric-1.mp4", label: "Разводка кабеля" },
+      { file: "media/services/electric-2.mp4", label: "Установка розеток" },
+      { file: "media/services/electric-3.mp4", label: "Щит и освещение" }
+    ],
+    [
+      { file: "media/services/plumbing-1.mp4", label: "Разводка воды и канализации" },
+      { file: "media/services/plumbing-2.mp4", label: "Подключение оборудования" },
+      { file: "media/services/plumbing-3.mp4", label: "Сантехнические узлы" }
+    ],
+    [
+      { file: "media/services/floors-1.mp4", label: "Стяжка" },
+      { file: "media/services/floors-2.mp4", label: "Подготовка основания" },
+      { file: "media/services/floors-3.mp4", label: "Ламинат" },
+      { file: "media/services/floors-4.mp4", label: "Кварцвинил" },
+      { file: "media/services/floors-5.mp4", label: "Линолеум и смежные решения" }
+    ],
+    [
+      { file: "media/services/welding-1.mp4", label: "Сварка металлоконструкций" },
+      { file: "media/services/welding-2.mp4", label: "Каркасы и навесы" },
+      { file: "media/services/welding-3.mp4", label: "Усиление элементов" }
+    ],
+    [
+      { file: "media/services/general-1.mp4", label: "Демонтаж" },
+      { file: "media/services/general-2.mp4", label: "Общестроительные процессы" },
+      { file: "media/services/general-3.mp4", label: "Фасадные и черновые работы" }
+    ]
   ];
 
   const cards = servicesGrid.querySelectorAll(".card");
-  const mediaVideos = [];
 
   cards.forEach((card, index) => {
+    const clips = serviceVideoSets[index] || serviceVideoSets[0];
+    if (!clips.length) return;
+
     const media = document.createElement("div");
     media.className = "service-media";
 
     const video = document.createElement("video");
-    const source = videoPool[index % videoPool.length];
+    const subservice = document.createElement("div");
+    subservice.className = "service-media__tag";
 
     video.muted = true;
     video.defaultMuted = true;
@@ -285,39 +338,27 @@ if (servicesGrid) {
     video.setAttribute("webkit-playsinline", "");
     video.setAttribute("preload", "metadata");
     video.setAttribute("aria-label", "Пример выполненных работ");
-    video.src = source;
+    video.src = clips[0].file;
+    subservice.textContent = clips[0].label;
     media.appendChild(video);
+    media.appendChild(subservice);
     card.prepend(media);
 
     video.play().catch(() => {});
-    mediaVideos.push(video);
-  });
+    card.classList.add("is-active");
 
-  let activeIndex = 0;
-
-  function activateServiceCard(idx) {
-    cards.forEach((card, cardIndex) => {
-      const isActive = cardIndex === idx;
-      card.classList.toggle("is-active", isActive);
-
-      const video = mediaVideos[cardIndex];
-      if (!video) return;
-
-      if (isActive) {
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-      }
-    });
-  }
-
-  if (cards.length > 0) {
-    activateServiceCard(activeIndex);
-
+    let clipIndex = 0;
     setInterval(() => {
-      activeIndex = (activeIndex + 1) % cards.length;
-      activateServiceCard(activeIndex);
+      clipIndex = (clipIndex + 1) % clips.length;
+      video.classList.add("is-switching");
+
+      setTimeout(() => {
+        video.src = clips[clipIndex].file;
+        subservice.textContent = clips[clipIndex].label;
+        video.play().catch(() => {});
+        video.classList.remove("is-switching");
+      }, 180);
     }, 2000);
-  }
+  });
 }
 

@@ -1,0 +1,178 @@
+﻿{
+    "putty":  [
+                  {
+                      "file":  "media/services/putty-1.mp4",
+                      "label":  "Шпатлевка под обои"
+                  },
+                  {
+                      "file":  "media/services/putty-2.mp4",
+                      "label":  "Шпатлевка под покраску"
+                  },
+                  {
+                      "file":  "media/services/putty-3.mp4",
+                      "label":  "Финишное выравнивание"
+                  }
+              ],
+    "house":  [
+                  {
+                      "file":  "media/services/house-1.mp4",
+                      "label":  "Частные дома"
+                  },
+                  {
+                      "file":  "media/services/house-2.mp4",
+                      "label":  "Этапное строительство"
+                  },
+                  {
+                      "file":  "media/services/house-3.mp4",
+                      "label":  "Пристройки и террасы"
+                  }
+              ],
+    "plumbing":  [
+                     {
+                         "file":  "media/services/plumbing-1.mp4",
+                         "label":  "Разводка воды и канализации"
+                     },
+                     {
+                         "file":  "media/services/plumbing-2.mp4",
+                         "label":  "Подключение оборудования"
+                     },
+                     {
+                         "file":  "media/services/plumbing-3.mp4",
+                         "label":  "Сантехнические узлы"
+                     }
+                 ],
+    "apartment":  [
+                      {
+                          "file":  "media/services/apartment-1.mp4",
+                          "label":  "Косметический и капитальный ремонт"
+                      },
+                      {
+                          "file":  "media/services/apartment-2.mp4",
+                          "label":  "Ремонт кухонь и комнат"
+                      },
+                      {
+                          "file":  "media/services/apartment-3.mp4",
+                          "label":  "Комплексный ремонт под ключ"
+                      }
+                  ],
+    "tile":  [
+                 {
+                     "file":  "media/services/tile-1.mp4",
+                     "label":  "Укладка плитки"
+                 },
+                 {
+                     "file":  "media/services/tile-2.mp4",
+                     "label":  "Облицовка стен"
+                 },
+                 {
+                     "file":  "media/services/tile-3.mp4",
+                     "label":  "Плитка на пол"
+                 }
+             ],
+    "plaster":  [
+                    {
+                        "file":  "media/services/plaster-1.mp4",
+                        "label":  "Штукатурка стен"
+                    },
+                    {
+                        "file":  "media/services/plaster-2.mp4",
+                        "label":  "Выравнивание плоскостей"
+                    },
+                    {
+                        "file":  "media/services/plaster-3.mp4",
+                        "label":  "Подготовка поверхности"
+                    }
+                ],
+    "welding":  [
+                    {
+                        "file":  "media/services/welding-1.mp4",
+                        "label":  "Сварка металлоконструкций"
+                    },
+                    {
+                        "file":  "media/services/welding-2.mp4",
+                        "label":  "Каркасы и навесы"
+                    },
+                    {
+                        "file":  "media/services/welding-3.mp4",
+                        "label":  "Усиление элементов"
+                    }
+                ],
+    "bathroom":  [
+                     {
+                         "file":  "media/services/bathroom-1.mp4",
+                         "label":  "Плитка в санузле"
+                     },
+                     {
+                         "file":  "media/services/bathroom-2.mp4",
+                         "label":  "Гидроизоляция"
+                     },
+                     {
+                         "file":  "media/services/bathroom-3.mp4",
+                         "label":  "Сантехника и отделка"
+                     }
+                 ],
+    "electric":  [
+                     {
+                         "file":  "media/services/electric-1.mp4",
+                         "label":  "Разводка кабеля"
+                     },
+                     {
+                         "file":  "media/services/electric-2.mp4",
+                         "label":  "Установка розеток"
+                     },
+                     {
+                         "file":  "media/services/electric-3.mp4",
+                         "label":  "Щит и освещение"
+                     }
+                 ],
+    "floors":  [
+                   {
+                       "file":  "media/services/floors-1.mp4",
+                       "label":  "Стяжка"
+                   },
+                   {
+                       "file":  "media/services/floors-2.mp4",
+                       "label":  "Подготовка основания"
+                   },
+                   {
+                       "file":  "media/services/floors-3.mp4",
+                       "label":  "Ламинат"
+                   },
+                   {
+                       "file":  "media/services/floors-4.mp4",
+                       "label":  "Кварцвинил"
+                   },
+                   {
+                       "file":  "media/services/floors-5.mp4",
+                       "label":  "Линолеум и смежные решения"
+                   }
+               ],
+    "paint":  [
+                  {
+                      "file":  "media/services/paint-1.mp4",
+                      "label":  "Покраска стен"
+                  },
+                  {
+                      "file":  "media/services/paint-2.mp4",
+                      "label":  "Покраска потолка"
+                  },
+                  {
+                      "file":  "media/services/paint-3.mp4",
+                      "label":  "Финишная окраска"
+                  }
+              ],
+    "general":  [
+                    {
+                        "file":  "media/services/general-1.mp4",
+                        "label":  "Демонтаж"
+                    },
+                    {
+                        "file":  "media/services/general-2.mp4",
+                        "label":  "Общестроительные процессы"
+                    },
+                    {
+                        "file":  "media/services/general-3.mp4",
+                        "label":  "Фасадные и черновые работы"
+                    }
+                ]
+}

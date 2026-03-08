@@ -490,9 +490,28 @@ img {
   transition: opacity .35s ease, filter .35s ease;
 }
 
+.service-media video.is-switching {
+  opacity: 0.22;
+}
+
 .services-grid .card.is-active .service-media video {
   opacity: 1;
   filter: saturate(1) contrast(1);
+}
+
+.service-media__tag {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  z-index: 2;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(8,24,18,0.72);
+  color: #f5fff9;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 .card__icon {
