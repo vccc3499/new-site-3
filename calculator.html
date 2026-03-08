@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Калькулятор стоимости — Ремонт и строительство в Архангельске</title>
+  <meta name="description" content="Онлайн-калькулятор ремонта ванной комнаты и отдельных видов работ в Архангельске." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__wrap">
+      <a href="index.html" class="logo">
+        <span class="logo__title">Ремонт и строительство</span>
+        <span class="logo__subtitle">Архангельск · организация работ · подбор исполнителей</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="services.html">Услуги</a>
+        <a href="prices.html">Цены</a>
+        <a href="calculator.html" class="active">Калькулятор</a>
+        <a href="portfolio.html">Портфолио</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="https://t.me/step1by2step" target="_blank">Telegram</a>
+        <a class="btn btn--primary" href="contacts.html">Оставить заявку</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero__box">
+        <h1>Премиальный калькулятор предварительной стоимости</h1>
+        <p>
+          Бесплатный расчёт для ванной комнаты и отдельных видов работ.
+          Достаточно ввести параметры, чтобы получить ориентировочный бюджет и при желании отправить расчёт в WhatsApp.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container calc-layout">
+      <div class="glass calc-box">
+        <div class="calc-grid">
+          <div class="calc-service">
+            <h3>Геометрия ванной комнаты</h3>
+            <div class="calc-service__fields">
+              <input id="bathLength" type="number" step="0.1" min="0" placeholder="Длина ванной, м">
+              <input id="bathWidth" type="number" step="0.1" min="0" placeholder="Ширина ванной, м">
+              <input id="bathHeight" type="number" step="0.1" min="0" placeholder="Высота потолка, м">
+            </div>
+          </div>
+
+          <div class="calc-service">
+            <h3>Плиточные работы в ванной</h3>
+            <div class="calc-service__fields">
+              <select id="tileMode">
+                <option value="none">Не считать плитку</option>
+                <option value="floor">Только пол</option>
+                <option value="floorwalls">Пол и стены</option>
+              </select>
+              <input id="tileSize" type="text" placeholder="Размер плитки, например 60x60">
+            </div>
+          </div>
+
+          <div class="calc-service">
+            <h3>Дополнительные работы в ванной</h3>
+            <div class="calc-service__fields calc-checkboxes">
+              <label><input type="checkbox" id="waterproofing"> Гидроизоляция пола</label>
+              <label><input type="checkbox" id="ceilingPaint"> Покраска потолка</label>
+              <label><input type="checkbox" id="wallPlaster"> Штукатурка стен</label>
+              <label><input type="checkbox" id="wallPuttyPaint"> Шпатлёвка стен под покраску</label>
+            </div>
+          </div>
+
+          <div class="calc-service">
+            <h3>Инженерные работы в ванной</h3>
+            <div class="calc-service__fields">
+              <input id="bathPlumbingPoints" type="number" min="0" placeholder="Сантехнические точки, шт.">
+              <input id="bathElectricPoints" type="number" min="0" placeholder="Электроточки, шт.">
+              <input id="cableLength" type="number" step="0.1" min="0" placeholder="Разводка кабеля, м.п.">
+            </div>
+          </div>
+
+          <div class="calc-service">
+            <h3>Отдельные виды работ по объекту</h3>
+            <div class="calc-service__fields">
+              <input id="plasterArea" type="number" step="0.1" min="0" placeholder="Штукатурка, м²">
+              <input id="puttyWallpaperArea" type="number" step="0.1" min="0" placeholder="Шпатлёвка под обои, м²">
+              <input id="puttyPaintArea" type="number" step="0.1" min="0" placeholder="Шпатлёвка под покраску, м²">
+              <input id="paintArea" type="number" step="0.1" min="0" placeholder="Покраска, м²">
+              <input id="tileArea" type="number" step="0.1" min="0" placeholder="Дополнительная плитка, м²">
+              <input id="electricPoints" type="number" min="0" placeholder="Доп. электроточки, шт.">
+              <input id="plumbingPoints" type="number" min="0" placeholder="Доп. сантехточки, шт.">
+            </div>
+          </div>
+
+          <div class="calc-service">
+            <h3>Сложность проекта</h3>
+            <div class="calc-service__fields">
+              <select id="complexity">
+                <option value="1">Стандартный объект</option>
+                <option value="1.1">Повышенная сложность</option>
+                <option value="1.2">Сложный объект</option>
+                <option value="1.3">Высокая сложность</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-actions">
+          <button id="calcBtn" class="btn btn--primary" type="button">Рассчитать</button>
+          <button id="sendCalcBtn" class="btn btn--ghost" type="button">Отправить в WhatsApp</button>
+        </div>
+
+        <p class="note">
+          Расчёт имеет предварительный характер и не является публичной офертой.
+          Итоговая стоимость зависит от состояния объекта, конфигурации помещений, объёма работ,
+          выбранных материалов и организационных условий.
+        </p>
+      </div>
+
+      <div class="glass calc-result">
+        <h3>Результат расчёта</h3>
+        <div id="calcResultList" class="calc-result-list">
+          <div class="calc-result-item">Заполните параметры, чтобы увидеть предварительный расчёт.</div>
+        </div>
+        <div class="calc-total">
+          <span>Итого:</span>
+          <strong id="calcTotal">0 ₽</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__wrap">
+      <span>© 2026 Ремонт и строительство в Архангельске</span>
+      <span><a href="contacts.html">Обсудить проект</a></span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
