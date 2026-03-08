@@ -1,4 +1,4 @@
-const leadForm = document.getElementById("leadForm");
+﻿const leadForm = document.getElementById("leadForm");
 
 if (leadForm) {
   leadForm.addEventListener("submit", function (e) {
@@ -9,13 +9,13 @@ if (leadForm) {
     const service = document.getElementById("service")?.value.trim() || "";
     const message = document.getElementById("message")?.value.trim() || "";
 
-    const text = `Здравствуйте!
-Хочу обсудить работы.
+    const text = `Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ!
+РҐРѕС‡Сѓ РѕР±СЃСѓРґРёС‚СЊ СЂР°Р±РѕС‚С‹.
 
-Имя: ${name}
-Телефон: ${phone}
-Интересуют работы: ${service}
-Комментарий: ${message}`;
+РРјСЏ: ${name}
+РўРµР»РµС„РѕРЅ: ${phone}
+РРЅС‚РµСЂРµСЃСѓСЋС‚ СЂР°Р±РѕС‚С‹: ${service}
+РљРѕРјРјРµРЅС‚Р°СЂРёР№: ${message}`;
 
     window.open(`https://wa.me/79539305851?text=${encodeURIComponent(text)}`, "_blank");
   });
@@ -40,7 +40,7 @@ const priceMap = {
 };
 
 function money(value) {
-  return new Intl.NumberFormat("ru-RU").format(Math.round(value)) + " ₽";
+  return new Intl.NumberFormat("ru-RU").format(Math.round(value)) + " в‚Ѕ";
 }
 
 function getVal(id) {
@@ -83,121 +83,121 @@ function calculateEstimate() {
   if (tileMode === "floor" && floorArea > 0) {
     const sum = floorArea * priceMap.tile;
     total += sum;
-    lines.push(`Плитка на пол${tileSize ? ` (${tileSize})` : ""}: ${floorArea.toFixed(2)} м² × ${priceMap.tile} ₽ = ${money(sum)}`);
+    lines.push(`РџР»РёС‚РєР° РЅР° РїРѕР»${tileSize ? ` (${tileSize})` : ""}: ${floorArea.toFixed(2)} РјВІ Г— ${priceMap.tile} в‚Ѕ = ${money(sum)}`);
   }
 
   if (tileMode === "floorwalls") {
     if (floorArea > 0) {
       const sumFloor = floorArea * priceMap.tile;
       total += sumFloor;
-      lines.push(`Плитка на пол${tileSize ? ` (${tileSize})` : ""}: ${floorArea.toFixed(2)} м² × ${priceMap.tile} ₽ = ${money(sumFloor)}`);
+      lines.push(`РџР»РёС‚РєР° РЅР° РїРѕР»${tileSize ? ` (${tileSize})` : ""}: ${floorArea.toFixed(2)} РјВІ Г— ${priceMap.tile} в‚Ѕ = ${money(sumFloor)}`);
     }
 
     if (wallArea > 0) {
       const sumWalls = wallArea * priceMap.tile;
       total += sumWalls;
-      lines.push(`Плитка на стены${tileSize ? ` (${tileSize})` : ""}: ${wallArea.toFixed(2)} м² × ${priceMap.tile} ₽ = ${money(sumWalls)}`);
+      lines.push(`РџР»РёС‚РєР° РЅР° СЃС‚РµРЅС‹${tileSize ? ` (${tileSize})` : ""}: ${wallArea.toFixed(2)} РјВІ Г— ${priceMap.tile} в‚Ѕ = ${money(sumWalls)}`);
     }
   }
 
   if (getChecked("waterproofing") && floorArea > 0) {
     const sum = floorArea * priceMap.waterproofing;
     total += sum;
-    lines.push(`Гидроизоляция пола: ${floorArea.toFixed(2)} м² × ${priceMap.waterproofing} ₽ = ${money(sum)}`);
+    lines.push(`Р“РёРґСЂРѕРёР·РѕР»СЏС†РёСЏ РїРѕР»Р°: ${floorArea.toFixed(2)} РјВІ Г— ${priceMap.waterproofing} в‚Ѕ = ${money(sum)}`);
   }
 
   if (getChecked("ceilingPaint") && ceilingArea > 0) {
     const sum = ceilingArea * priceMap.ceilingPaint;
     total += sum;
-    lines.push(`Покраска потолка: ${ceilingArea.toFixed(2)} м² × ${priceMap.ceilingPaint} ₽ = ${money(sum)}`);
+    lines.push(`РџРѕРєСЂР°СЃРєР° РїРѕС‚РѕР»РєР°: ${ceilingArea.toFixed(2)} РјВІ Г— ${priceMap.ceilingPaint} в‚Ѕ = ${money(sum)}`);
   }
 
   if (getChecked("wallPlaster") && wallArea > 0) {
     const sum = wallArea * priceMap.plaster;
     total += sum;
-    lines.push(`Штукатурка стен ванной: ${wallArea.toFixed(2)} м² × ${priceMap.plaster} ₽ = ${money(sum)}`);
+    lines.push(`РЁС‚СѓРєР°С‚СѓСЂРєР° СЃС‚РµРЅ РІР°РЅРЅРѕР№: ${wallArea.toFixed(2)} РјВІ Г— ${priceMap.plaster} в‚Ѕ = ${money(sum)}`);
   }
 
   if (getChecked("wallPuttyPaint") && wallArea > 0) {
     const sum = wallArea * priceMap.puttyPaint;
     total += sum;
-    lines.push(`Шпатлёвка стен ванной под покраску: ${wallArea.toFixed(2)} м² × ${priceMap.puttyPaint} ₽ = ${money(sum)}`);
+    lines.push(`РЁРїР°С‚Р»С‘РІРєР° СЃС‚РµРЅ РІР°РЅРЅРѕР№ РїРѕРґ РїРѕРєСЂР°СЃРєСѓ: ${wallArea.toFixed(2)} РјВІ Г— ${priceMap.puttyPaint} в‚Ѕ = ${money(sum)}`);
   }
 
   const bathPlumbingPoints = getVal("bathPlumbingPoints");
   if (bathPlumbingPoints > 0) {
     const sum = bathPlumbingPoints * priceMap.plumbingPoint;
     total += sum;
-    lines.push(`Сантехнические точки в ванной: ${bathPlumbingPoints} × ${priceMap.plumbingPoint} ₽ = ${money(sum)}`);
+    lines.push(`РЎР°РЅС‚РµС…РЅРёС‡РµСЃРєРёРµ С‚РѕС‡РєРё РІ РІР°РЅРЅРѕР№: ${bathPlumbingPoints} Г— ${priceMap.plumbingPoint} в‚Ѕ = ${money(sum)}`);
   }
 
   const bathElectricPoints = getVal("bathElectricPoints");
   if (bathElectricPoints > 0) {
     const sum = bathElectricPoints * priceMap.electricPoint;
     total += sum;
-    lines.push(`Электроточки в ванной: ${bathElectricPoints} × ${priceMap.electricPoint} ₽ = ${money(sum)}`);
+    lines.push(`Р­Р»РµРєС‚СЂРѕС‚РѕС‡РєРё РІ РІР°РЅРЅРѕР№: ${bathElectricPoints} Г— ${priceMap.electricPoint} в‚Ѕ = ${money(sum)}`);
   }
 
   const cableLength = getVal("cableLength");
   if (cableLength > 0) {
     const sum = cableLength * priceMap.cable;
     total += sum;
-    lines.push(`Разводка кабеля: ${cableLength} м × ${priceMap.cable} ₽ = ${money(sum)}`);
+    lines.push(`Р Р°Р·РІРѕРґРєР° РєР°Р±РµР»СЏ: ${cableLength} Рј Г— ${priceMap.cable} в‚Ѕ = ${money(sum)}`);
   }
 
   const plasterArea = getVal("plasterArea");
   if (plasterArea > 0) {
     const sum = plasterArea * priceMap.plaster;
     total += sum;
-    lines.push(`Штукатурка: ${plasterArea} м² × ${priceMap.plaster} ₽ = ${money(sum)}`);
+    lines.push(`РЁС‚СѓРєР°С‚СѓСЂРєР°: ${plasterArea} РјВІ Г— ${priceMap.plaster} в‚Ѕ = ${money(sum)}`);
   }
 
   const puttyWallpaperArea = getVal("puttyWallpaperArea");
   if (puttyWallpaperArea > 0) {
     const sum = puttyWallpaperArea * priceMap.puttyWallpaper;
     total += sum;
-    lines.push(`Шпатлёвка под обои: ${puttyWallpaperArea} м² × ${priceMap.puttyWallpaper} ₽ = ${money(sum)}`);
+    lines.push(`РЁРїР°С‚Р»С‘РІРєР° РїРѕРґ РѕР±РѕРё: ${puttyWallpaperArea} РјВІ Г— ${priceMap.puttyWallpaper} в‚Ѕ = ${money(sum)}`);
   }
 
   const puttyPaintArea = getVal("puttyPaintArea");
   if (puttyPaintArea > 0) {
     const sum = puttyPaintArea * priceMap.puttyPaint;
     total += sum;
-    lines.push(`Шпатлёвка под покраску: ${puttyPaintArea} м² × ${priceMap.puttyPaint} ₽ = ${money(sum)}`);
+    lines.push(`РЁРїР°С‚Р»С‘РІРєР° РїРѕРґ РїРѕРєСЂР°СЃРєСѓ: ${puttyPaintArea} РјВІ Г— ${priceMap.puttyPaint} в‚Ѕ = ${money(sum)}`);
   }
 
   const paintArea = getVal("paintArea");
   if (paintArea > 0) {
     const sum = paintArea * priceMap.paint;
     total += sum;
-    lines.push(`Покраска: ${paintArea} м² × ${priceMap.paint} ₽ = ${money(sum)}`);
+    lines.push(`РџРѕРєСЂР°СЃРєР°: ${paintArea} РјВІ Г— ${priceMap.paint} в‚Ѕ = ${money(sum)}`);
   }
 
   const tileArea = getVal("tileArea");
   if (tileArea > 0) {
     const sum = tileArea * priceMap.tile;
     total += sum;
-    lines.push(`Дополнительные плиточные работы: ${tileArea} м² × ${priceMap.tile} ₽ = ${money(sum)}`);
+    lines.push(`Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїР»РёС‚РѕС‡РЅС‹Рµ СЂР°Р±РѕС‚С‹: ${tileArea} РјВІ Г— ${priceMap.tile} в‚Ѕ = ${money(sum)}`);
   }
 
   const electricPoints = getVal("electricPoints");
   if (electricPoints > 0) {
     const sum = electricPoints * priceMap.electricPoint;
     total += sum;
-    lines.push(`Дополнительные электроточки: ${electricPoints} × ${priceMap.electricPoint} ₽ = ${money(sum)}`);
+    lines.push(`Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СЌР»РµРєС‚СЂРѕС‚РѕС‡РєРё: ${electricPoints} Г— ${priceMap.electricPoint} в‚Ѕ = ${money(sum)}`);
   }
 
   const plumbingPoints = getVal("plumbingPoints");
   if (plumbingPoints > 0) {
     const sum = plumbingPoints * priceMap.plumbingPoint;
     total += sum;
-    lines.push(`Дополнительные сантехточки: ${plumbingPoints} × ${priceMap.plumbingPoint} ₽ = ${money(sum)}`);
+    lines.push(`Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СЃР°РЅС‚РµС…С‚РѕС‡РєРё: ${plumbingPoints} Г— ${priceMap.plumbingPoint} в‚Ѕ = ${money(sum)}`);
   }
 
   const totalWithComplexity = total * complexity;
 
   if (complexity > 1) {
-    lines.push(`Коэффициент сложности: × ${complexity}`);
+    lines.push(`РљРѕСЌС„С„РёС†РёРµРЅС‚ СЃР»РѕР¶РЅРѕСЃС‚Рё: Г— ${complexity}`);
   }
 
   return {
@@ -213,8 +213,8 @@ if (calcBtn) {
     if (!calcResultList || !calcTotal) return;
 
     if (!result.lines.length) {
-      calcResultList.innerHTML = `<div class="calc-result-item">Укажите параметры, чтобы получить предварительный расчёт.</div>`;
-      calcTotal.textContent = "0 ₽";
+      calcResultList.innerHTML = `<div class="calc-result-item">РЈРєР°Р¶РёС‚Рµ РїР°СЂР°РјРµС‚СЂС‹, С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹Р№ СЂР°СЃС‡С‘С‚.</div>`;
+      calcTotal.textContent = "0 в‚Ѕ";
       return;
     }
 
@@ -231,16 +231,16 @@ if (sendCalcBtn) {
     const result = calculateEstimate();
 
     if (!result.lines.length) {
-      alert("Сначала заполните параметры расчёта.");
+      alert("РЎРЅР°С‡Р°Р»Р° Р·Р°РїРѕР»РЅРёС‚Рµ РїР°СЂР°РјРµС‚СЂС‹ СЂР°СЃС‡С‘С‚Р°.");
       return;
     }
 
-    const text = `Здравствуйте!
-Хочу обсудить предварительный расчёт.
+    const text = `Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ!
+РҐРѕС‡Сѓ РѕР±СЃСѓРґРёС‚СЊ РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹Р№ СЂР°СЃС‡С‘С‚.
 
 ${result.lines.join("\n")}
 
-Итого: ${money(result.total)}`;
+РС‚РѕРіРѕ: ${money(result.total)}`;
 
     window.open(`https://wa.me/79539305851?text=${encodeURIComponent(text)}`, "_blank");
   });
@@ -251,51 +251,51 @@ const servicesGrid = document.querySelector(".services-grid");
 if (servicesGrid) {
   const serviceMedia = [
     {
-      labels: ["Косметический и капитальный ремонт", "Ремонт кухонь и комнат", "Комплексный ремонт под ключ"],
+      labels: ["РљРѕСЃРјРµС‚РёС‡РµСЃРєРёР№ Рё РєР°РїРёС‚Р°Р»СЊРЅС‹Р№ СЂРµРјРѕРЅС‚", "Р РµРјРѕРЅС‚ РєСѓС…РѕРЅСЊ Рё РєРѕРјРЅР°С‚", "РљРѕРјРїР»РµРєСЃРЅС‹Р№ СЂРµРјРѕРЅС‚ РїРѕРґ РєР»СЋС‡"],
       files: ["media/services/apartment-1.mp4","media/services/apartment-2.mp4","media/services/apartment-3.mp4"]
     },
     {
-      labels: ["Частные дома", "Этапное строительство", "Пристройки и террасы"],
+      labels: ["Р§Р°СЃС‚РЅС‹Рµ РґРѕРјР°", "Р­С‚Р°РїРЅРѕРµ СЃС‚СЂРѕРёС‚РµР»СЊСЃС‚РІРѕ", "РџСЂРёСЃС‚СЂРѕР№РєРё Рё С‚РµСЂСЂР°СЃС‹"],
       files: ["media/services/house-1.mp4","media/services/house-2.mp4","media/services/house-3.mp4"]
     },
     {
-      labels: ["Плитка в санузле", "Гидроизоляция", "Сантехника и отделка"],
+      labels: ["РџР»РёС‚РєР° РІ СЃР°РЅСѓР·Р»Рµ", "Р“РёРґСЂРѕРёР·РѕР»СЏС†РёСЏ", "РЎР°РЅС‚РµС…РЅРёРєР° Рё РѕС‚РґРµР»РєР°"],
       files: ["media/services/bathroom-1.mp4","media/services/bathroom-2.mp4","media/services/bathroom-3.mp4"]
     },
     {
-      labels: ["Штукатурка стен", "Выравнивание плоскостей", "Подготовка поверхности"],
+      labels: ["РЁС‚СѓРєР°С‚СѓСЂРєР° СЃС‚РµРЅ", "Р’С‹СЂР°РІРЅРёРІР°РЅРёРµ РїР»РѕСЃРєРѕСЃС‚РµР№", "РџРѕРґРіРѕС‚РѕРІРєР° РїРѕРІРµСЂС…РЅРѕСЃС‚Рё"],
       files: ["media/services/plaster-1.mp4","media/services/plaster-2.mp4","media/services/plaster-3.mp4"]
     },
     {
-      labels: ["Шпатлевка под обои", "Шпатлевка под покраску", "Финишное выравнивание"],
+      labels: ["РЁРїР°С‚Р»РµРІРєР° РїРѕРґ РѕР±РѕРё", "РЁРїР°С‚Р»РµРІРєР° РїРѕРґ РїРѕРєСЂР°СЃРєСѓ", "Р¤РёРЅРёС€РЅРѕРµ РІС‹СЂР°РІРЅРёРІР°РЅРёРµ"],
       files: ["media/services/putty-1.mp4","media/services/putty-2.mp4","media/services/putty-3.mp4"]
     },
     {
-      labels: ["Покраска стен", "Покраска потолка", "Финишная окраска"],
+      labels: ["РџРѕРєСЂР°СЃРєР° СЃС‚РµРЅ", "РџРѕРєСЂР°СЃРєР° РїРѕС‚РѕР»РєР°", "Р¤РёРЅРёС€РЅР°СЏ РѕРєСЂР°СЃРєР°"],
       files: ["media/services/paint-1.mp4","media/services/paint-2.mp4","media/services/paint-3.mp4"]
     },
     {
-      labels: ["Укладка плитки", "Облицовка стен", "Плитка на пол"],
+      labels: ["РЈРєР»Р°РґРєР° РїР»РёС‚РєРё", "РћР±Р»РёС†РѕРІРєР° СЃС‚РµРЅ", "РџР»РёС‚РєР° РЅР° РїРѕР»"],
       files: ["media/services/tile-1.mp4","media/services/tile-2.mp4","media/services/tile-3.mp4"]
     },
     {
-      labels: ["Разводка кабеля", "Установка розеток", "Щит и освещение"],
+      labels: ["Р Р°Р·РІРѕРґРєР° РєР°Р±РµР»СЏ", "РЈСЃС‚Р°РЅРѕРІРєР° СЂРѕР·РµС‚РѕРє", "Р©РёС‚ Рё РѕСЃРІРµС‰РµРЅРёРµ"],
       files: ["media/services/electric-1.mp4","media/services/electric-2.mp4","media/services/electric-3.mp4"]
     },
     {
-      labels: ["Разводка воды и канализации", "Подключение оборудования", "Сантехнические узлы"],
+      labels: ["Р Р°Р·РІРѕРґРєР° РІРѕРґС‹ Рё РєР°РЅР°Р»РёР·Р°С†РёРё", "РџРѕРґРєР»СЋС‡РµРЅРёРµ РѕР±РѕСЂСѓРґРѕРІР°РЅРёСЏ", "РЎР°РЅС‚РµС…РЅРёС‡РµСЃРєРёРµ СѓР·Р»С‹"],
       files: ["media/services/plumbing-1.mp4","media/services/plumbing-2.mp4","media/services/plumbing-3.mp4"]
     },
     {
-      labels: ["Стяжка", "Подготовка основания", "Ламинат", "Кварцвинил", "Линолеум и смежные решения"],
+      labels: ["РЎС‚СЏР¶РєР°", "РџРѕРґРіРѕС‚РѕРІРєР° РѕСЃРЅРѕРІР°РЅРёСЏ", "Р›Р°РјРёРЅР°С‚", "РљРІР°СЂС†РІРёРЅРёР»", "Р›РёРЅРѕР»РµСѓРј Рё СЃРјРµР¶РЅС‹Рµ СЂРµС€РµРЅРёСЏ"],
       files: ["media/services/floors-1.mp4","media/services/floors-2.mp4","media/services/floors-3.mp4","media/services/floors-4.mp4","media/services/floors-5.mp4"]
     },
     {
-      labels: ["Сварка металлоконструкций", "Каркасы и навесы", "Усиление элементов"],
+      labels: ["РЎРІР°СЂРєР° РјРµС‚Р°Р»Р»РѕРєРѕРЅСЃС‚СЂСѓРєС†РёР№", "РљР°СЂРєР°СЃС‹ Рё РЅР°РІРµСЃС‹", "РЈСЃРёР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ"],
       files: ["media/services/welding-1.mp4","media/services/welding-2.mp4","media/services/welding-3.mp4"]
     },
     {
-      labels: ["Демонтаж", "Общестроительные процессы", "Фасадные и черновые работы"],
+      labels: ["Р”РµРјРѕРЅС‚Р°Р¶", "РћР±С‰РµСЃС‚СЂРѕРёС‚РµР»СЊРЅС‹Рµ РїСЂРѕС†РµСЃСЃС‹", "Р¤Р°СЃР°РґРЅС‹Рµ Рё С‡РµСЂРЅРѕРІС‹Рµ СЂР°Р±РѕС‚С‹"],
       files: ["media/services/general-1.mp4","media/services/general-2.mp4","media/services/general-3.mp4"]
     }
   ];
@@ -304,49 +304,82 @@ if (servicesGrid) {
 
   cards.forEach((card, index) => {
     const group = serviceMedia[index] || serviceMedia[0];
-    const clips = group.files.map(file => ({ file }));
+    const clips = group.files;
     const labels = group.labels;
     if (!clips.length) return;
 
     const media = document.createElement("div");
     media.className = "service-media";
 
-    const video = document.createElement("video");
+    const videoA = document.createElement("video");
+    const videoB = document.createElement("video");
     const subservice = document.createElement("div");
     subservice.className = "service-media__tag";
 
-    video.muted = true;
-    video.defaultMuted = true;
-    video.loop = true;
-    video.autoplay = true;
-    video.playsInline = true;
-    video.setAttribute("autoplay", "");
-    video.setAttribute("muted", "");
-    video.setAttribute("playsinline", "");
-    video.setAttribute("webkit-playsinline", "");
-    video.setAttribute("preload", "metadata");
-    video.setAttribute("aria-label", "Пример выполненных работ");
-    video.src = clips[0].file;
+    [videoA, videoB].forEach((video) => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.loop = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.setAttribute("autoplay", "");
+      video.setAttribute("muted", "");
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
+      video.setAttribute("preload", "metadata");
+      video.setAttribute("aria-label", "Пример выполненных работ");
+    });
+
+    let clipIndex = 0;
+    let activeVideo = videoA;
+    let hiddenVideo = videoB;
+
+    activeVideo.src = clips[clipIndex];
+    activeVideo.classList.add("is-visible");
     subservice.textContent = labels[0];
-    media.appendChild(video);
+
+    media.appendChild(videoA);
+    media.appendChild(videoB);
     media.appendChild(subservice);
     card.prepend(media);
 
-    video.play().catch(() => {});
+    activeVideo.play().catch(() => {});
     card.classList.add("is-active");
 
-    let clipIndex = 0;
     setInterval(() => {
       clipIndex = (clipIndex + 1) % clips.length;
-      video.classList.add("is-switching");
+      hiddenVideo.src = clips[clipIndex];
+      subservice.textContent = labels[clipIndex % labels.length];
 
-      setTimeout(() => {
-        video.src = clips[clipIndex].file;
-        subservice.textContent = labels[clipIndex % labels.length];
-        video.play().catch(() => {});
-        video.classList.remove("is-switching");
-      }, 180);
-    }, 2000);
+      hiddenVideo.currentTime = 0;
+      hiddenVideo.play().catch(() => {});
+
+      requestAnimationFrame(() => {
+        activeVideo.classList.remove("is-visible");
+        hiddenVideo.classList.add("is-visible");
+      });
+
+      const tmp = activeVideo;
+      activeVideo = hiddenVideo;
+      hiddenVideo = tmp;
+    }, 2200);
   });
 }
 
+const headerWrap = document.querySelector(".header__wrap");
+const header = document.querySelector(".header");
+
+if (headerWrap && header) {
+  const nav = headerWrap.querySelector(".nav");
+  if (nav && !headerWrap.querySelector(".menu-toggle")) {
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "menu-toggle";
+    toggle.textContent = "Меню";
+    headerWrap.insertBefore(toggle, nav);
+
+    toggle.addEventListener("click", () => {
+      header.classList.toggle("menu-open");
+    });
+  }
+}
