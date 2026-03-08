@@ -249,75 +249,66 @@ ${result.lines.join("\n")}
 const servicesGrid = document.querySelector(".services-grid");
 
 if (servicesGrid) {
-  const serviceVideoSets = [
-    [
-      { file: "media/services/apartment-1.mp4", label: "Косметический и капитальный ремонт" },
-      { file: "media/services/apartment-2.mp4", label: "Ремонт кухонь и комнат" },
-      { file: "media/services/apartment-3.mp4", label: "Комплексный ремонт под ключ" }
-    ],
-    [
-      { file: "media/services/house-1.mp4", label: "Частные дома" },
-      { file: "media/services/house-2.mp4", label: "Этапное строительство" },
-      { file: "media/services/house-3.mp4", label: "Пристройки и террасы" }
-    ],
-    [
-      { file: "media/services/bathroom-1.mp4", label: "Плитка в санузле" },
-      { file: "media/services/bathroom-2.mp4", label: "Гидроизоляция" },
-      { file: "media/services/bathroom-3.mp4", label: "Сантехника и отделка" }
-    ],
-    [
-      { file: "media/services/plaster-1.mp4", label: "Штукатурка стен" },
-      { file: "media/services/plaster-2.mp4", label: "Выравнивание плоскостей" },
-      { file: "media/services/plaster-3.mp4", label: "Подготовка поверхности" }
-    ],
-    [
-      { file: "media/services/putty-1.mp4", label: "Шпатлевка под обои" },
-      { file: "media/services/putty-2.mp4", label: "Шпатлевка под покраску" },
-      { file: "media/services/putty-3.mp4", label: "Финишное выравнивание" }
-    ],
-    [
-      { file: "media/services/paint-1.mp4", label: "Покраска стен" },
-      { file: "media/services/paint-2.mp4", label: "Покраска потолка" },
-      { file: "media/services/paint-3.mp4", label: "Финишная окраска" }
-    ],
-    [
-      { file: "media/services/tile-1.mp4", label: "Укладка плитки" },
-      { file: "media/services/tile-2.mp4", label: "Облицовка стен" },
-      { file: "media/services/tile-3.mp4", label: "Плитка на пол" }
-    ],
-    [
-      { file: "media/services/electric-1.mp4", label: "Разводка кабеля" },
-      { file: "media/services/electric-2.mp4", label: "Установка розеток" },
-      { file: "media/services/electric-3.mp4", label: "Щит и освещение" }
-    ],
-    [
-      { file: "media/services/plumbing-1.mp4", label: "Разводка воды и канализации" },
-      { file: "media/services/plumbing-2.mp4", label: "Подключение оборудования" },
-      { file: "media/services/plumbing-3.mp4", label: "Сантехнические узлы" }
-    ],
-    [
-      { file: "media/services/floors-1.mp4", label: "Стяжка" },
-      { file: "media/services/floors-2.mp4", label: "Подготовка основания" },
-      { file: "media/services/floors-3.mp4", label: "Ламинат" },
-      { file: "media/services/floors-4.mp4", label: "Кварцвинил" },
-      { file: "media/services/floors-5.mp4", label: "Линолеум и смежные решения" }
-    ],
-    [
-      { file: "media/services/welding-1.mp4", label: "Сварка металлоконструкций" },
-      { file: "media/services/welding-2.mp4", label: "Каркасы и навесы" },
-      { file: "media/services/welding-3.mp4", label: "Усиление элементов" }
-    ],
-    [
-      { file: "media/services/general-1.mp4", label: "Демонтаж" },
-      { file: "media/services/general-2.mp4", label: "Общестроительные процессы" },
-      { file: "media/services/general-3.mp4", label: "Фасадные и черновые работы" }
-    ]
+  const serviceMedia = [
+    {
+      labels: ["Косметический и капитальный ремонт", "Ремонт кухонь и комнат", "Комплексный ремонт под ключ"],
+      files: ["v001","v002","v003","v004","v005","v006","v007","v008","v009","v010"]
+    },
+    {
+      labels: ["Частные дома", "Этапное строительство", "Пристройки и террасы"],
+      files: ["v011","v012","v013","v014","v015","v016","v017","v018","v019","v020"]
+    },
+    {
+      labels: ["Плитка в санузле", "Гидроизоляция", "Сантехника и отделка"],
+      files: ["v021","v022","v023","v024","v025","v026","v027","v028","v029","v030"]
+    },
+    {
+      labels: ["Штукатурка стен", "Выравнивание плоскостей", "Подготовка поверхности"],
+      files: ["v031","v032","v033","v034","v035","v036","v037","v038","v039","v040"]
+    },
+    {
+      labels: ["Шпатлевка под обои", "Шпатлевка под покраску", "Финишное выравнивание"],
+      files: ["v041","v042","v043","v044","v045","v046","v047","v048","v049","v050"]
+    },
+    {
+      labels: ["Покраска стен", "Покраска потолка", "Финишная окраска"],
+      files: ["v051","v052","v053","v054","v055","v056","v057","v058","v059","v060"]
+    },
+    {
+      labels: ["Укладка плитки", "Облицовка стен", "Плитка на пол"],
+      files: ["v061","v062","v063","v064","v065","v066","v067","v068","v069","v070"]
+    },
+    {
+      labels: ["Разводка кабеля", "Установка розеток", "Щит и освещение"],
+      files: ["v071","v072","v073","v074","v075","v076","v077","v078","v079","v080"]
+    },
+    {
+      labels: ["Разводка воды и канализации", "Подключение оборудования", "Сантехнические узлы"],
+      files: ["v081","v082","v083","v084","v085","v086","v087","v088","v089","v090"]
+    },
+    {
+      labels: ["Стяжка", "Подготовка основания", "Ламинат", "Кварцвинил", "Линолеум и смежные решения"],
+      files: ["v091","v092","v093","v094","v095","v096","v097","v098","v099","v100"]
+    },
+    {
+      labels: ["Сварка металлоконструкций", "Каркасы и навесы", "Усиление элементов"],
+      files: ["v101","v102","v103","v104","v105","v106","v107","v108","v109","v110"]
+    },
+    {
+      labels: ["Демонтаж", "Общестроительные процессы", "Фасадные и черновые работы"],
+      files: ["v111","v112","v113","v114","v115","v116","v117","v118","v119","v120"]
+    }
   ];
 
   const cards = servicesGrid.querySelectorAll(".card");
 
   cards.forEach((card, index) => {
-    const clips = serviceVideoSets[index] || serviceVideoSets[0];
+    const group = serviceMedia[index] || serviceMedia[0];
+    const clips = group.files.map(name => ({
+      file: `media/services/library/${name}.mp4`,
+      label: group.labels[0]
+    }));
+    const labels = group.labels;
     if (!clips.length) return;
 
     const media = document.createElement("div");
@@ -339,7 +330,7 @@ if (servicesGrid) {
     video.setAttribute("preload", "metadata");
     video.setAttribute("aria-label", "Пример выполненных работ");
     video.src = clips[0].file;
-    subservice.textContent = clips[0].label;
+    subservice.textContent = labels[0];
     media.appendChild(video);
     media.appendChild(subservice);
     card.prepend(media);
@@ -354,7 +345,7 @@ if (servicesGrid) {
 
       setTimeout(() => {
         video.src = clips[clipIndex].file;
-        subservice.textContent = clips[clipIndex].label;
+        subservice.textContent = labels[clipIndex % labels.length];
         video.play().catch(() => {});
         video.classList.remove("is-switching");
       }, 180);
