@@ -940,6 +940,11 @@ img {
 }
 
 @media (max-width: 760px) {
+  body::before,
+  body::after {
+    position: absolute;
+  }
+
   .header {
     position: static;
   }
@@ -997,6 +1002,22 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .hero {
+    padding: 52px 0 26px;
+  }
+
+  .section {
+    padding: 58px 0;
+  }
+
+  .section-head {
+    margin-bottom: 22px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+  }
+
   .puzzle-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: 110px;
@@ -1010,7 +1031,7 @@ img {
   }
 
   .service-media {
-    height: 164px;
+    height: 152px;
   }
 
   .price-row {
@@ -1041,7 +1062,7 @@ img {
   }
 
   .hero-card__image {
-    min-height: 320px;
+    min-height: 250px;
   }
 
   .logo__title {
@@ -1067,7 +1088,24 @@ img {
     font-size: clamp(30px, 10vw, 44px);
   }
 
+  .hero p {
+    font-size: 16px;
+  }
+
   .section-title {
     font-size: clamp(26px, 8vw, 36px);
+  }
+
+  .service-media {
+    height: 138px;
+    margin: -22px -22px 14px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .calc-total {
+    font-size: 18px;
   }
 }

@@ -390,5 +390,17 @@ if (headerWrap && header) {
     toggle.addEventListener("click", () => {
       header.classList.toggle("menu-open");
     });
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        header.classList.remove("menu-open");
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 760) {
+        header.classList.remove("menu-open");
+      }
+    });
   }
 }
