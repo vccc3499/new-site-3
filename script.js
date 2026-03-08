@@ -249,129 +249,46 @@ ${result.lines.join("\n")}
 const servicesGrid = document.querySelector(".services-grid");
 
 if (servicesGrid) {
-  const serviceMedia = [
-    {
-      labels: ["РљРѕСЃРјРµС‚РёС‡РµСЃРєРёР№ Рё РєР°РїРёС‚Р°Р»СЊРЅС‹Р№ СЂРµРјРѕРЅС‚", "Р РµРјРѕРЅС‚ РєСѓС…РѕРЅСЊ Рё РєРѕРјРЅР°С‚", "РљРѕРјРїР»РµРєСЃРЅС‹Р№ СЂРµРјРѕРЅС‚ РїРѕРґ РєР»СЋС‡"],
-      files: ["media/services/apartment-1.mp4","media/services/apartment-2.mp4","media/services/apartment-3.mp4"]
-    },
-    {
-      labels: ["Р§Р°СЃС‚РЅС‹Рµ РґРѕРјР°", "Р­С‚Р°РїРЅРѕРµ СЃС‚СЂРѕРёС‚РµР»СЊСЃС‚РІРѕ", "РџСЂРёСЃС‚СЂРѕР№РєРё Рё С‚РµСЂСЂР°СЃС‹"],
-      files: ["media/services/house-1.mp4","media/services/house-2.mp4","media/services/house-3.mp4"]
-    },
-    {
-      labels: ["РџР»РёС‚РєР° РІ СЃР°РЅСѓР·Р»Рµ", "Р“РёРґСЂРѕРёР·РѕР»СЏС†РёСЏ", "РЎР°РЅС‚РµС…РЅРёРєР° Рё РѕС‚РґРµР»РєР°"],
-      files: ["media/services/bathroom-1.mp4","media/services/bathroom-2.mp4","media/services/bathroom-3.mp4"]
-    },
-    {
-      labels: ["РЁС‚СѓРєР°С‚СѓСЂРєР° СЃС‚РµРЅ", "Р’С‹СЂР°РІРЅРёРІР°РЅРёРµ РїР»РѕСЃРєРѕСЃС‚РµР№", "РџРѕРґРіРѕС‚РѕРІРєР° РїРѕРІРµСЂС…РЅРѕСЃС‚Рё"],
-      files: ["media/services/plaster-1.mp4","media/services/plaster-2.mp4","media/services/plaster-3.mp4"]
-    },
-    {
-      labels: ["РЁРїР°С‚Р»РµРІРєР° РїРѕРґ РѕР±РѕРё", "РЁРїР°С‚Р»РµРІРєР° РїРѕРґ РїРѕРєСЂР°СЃРєСѓ", "Р¤РёРЅРёС€РЅРѕРµ РІС‹СЂР°РІРЅРёРІР°РЅРёРµ"],
-      files: ["media/services/putty-1.mp4","media/services/putty-2.mp4","media/services/putty-3.mp4"]
-    },
-    {
-      labels: ["РџРѕРєСЂР°СЃРєР° СЃС‚РµРЅ", "РџРѕРєСЂР°СЃРєР° РїРѕС‚РѕР»РєР°", "Р¤РёРЅРёС€РЅР°СЏ РѕРєСЂР°СЃРєР°"],
-      files: ["media/services/paint-1.mp4","media/services/paint-2.mp4","media/services/paint-3.mp4"]
-    },
-    {
-      labels: ["РЈРєР»Р°РґРєР° РїР»РёС‚РєРё", "РћР±Р»РёС†РѕРІРєР° СЃС‚РµРЅ", "РџР»РёС‚РєР° РЅР° РїРѕР»"],
-      files: ["media/services/tile-1.mp4","media/services/tile-2.mp4","media/services/tile-3.mp4"]
-    },
-    {
-      labels: ["Р Р°Р·РІРѕРґРєР° РєР°Р±РµР»СЏ", "РЈСЃС‚Р°РЅРѕРІРєР° СЂРѕР·РµС‚РѕРє", "Р©РёС‚ Рё РѕСЃРІРµС‰РµРЅРёРµ"],
-      files: ["media/services/electric-1.mp4","media/services/electric-2.mp4","media/services/electric-3.mp4"]
-    },
-    {
-      labels: ["Р Р°Р·РІРѕРґРєР° РІРѕРґС‹ Рё РєР°РЅР°Р»РёР·Р°С†РёРё", "РџРѕРґРєР»СЋС‡РµРЅРёРµ РѕР±РѕСЂСѓРґРѕРІР°РЅРёСЏ", "РЎР°РЅС‚РµС…РЅРёС‡РµСЃРєРёРµ СѓР·Р»С‹"],
-      files: ["media/services/plumbing-1.mp4","media/services/plumbing-2.mp4","media/services/plumbing-3.mp4"]
-    },
-    {
-      labels: ["РЎС‚СЏР¶РєР°", "РџРѕРґРіРѕС‚РѕРІРєР° РѕСЃРЅРѕРІР°РЅРёСЏ", "Р›Р°РјРёРЅР°С‚", "РљРІР°СЂС†РІРёРЅРёР»", "Р›РёРЅРѕР»РµСѓРј Рё СЃРјРµР¶РЅС‹Рµ СЂРµС€РµРЅРёСЏ"],
-      files: ["media/services/floors-1.mp4","media/services/floors-2.mp4","media/services/floors-3.mp4","media/services/floors-4.mp4","media/services/floors-5.mp4"]
-    },
-    {
-      labels: ["РЎРІР°СЂРєР° РјРµС‚Р°Р»Р»РѕРєРѕРЅСЃС‚СЂСѓРєС†РёР№", "РљР°СЂРєР°СЃС‹ Рё РЅР°РІРµСЃС‹", "РЈСЃРёР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ"],
-      files: ["media/services/welding-1.mp4","media/services/welding-2.mp4","media/services/welding-3.mp4"]
-    },
-    {
-      labels: ["Р”РµРјРѕРЅС‚Р°Р¶", "РћР±С‰РµСЃС‚СЂРѕРёС‚РµР»СЊРЅС‹Рµ РїСЂРѕС†РµСЃСЃС‹", "Р¤Р°СЃР°РґРЅС‹Рµ Рё С‡РµСЂРЅРѕРІС‹Рµ СЂР°Р±РѕС‚С‹"],
-      files: ["media/services/general-1.mp4","media/services/general-2.mp4","media/services/general-3.mp4"]
-    }
+  const mergedVideos = [
+    "media/services/merged/apartment.mp4",
+    "media/services/merged/house.mp4",
+    "media/services/merged/bathroom.mp4",
+    "media/services/merged/plaster.mp4",
+    "media/services/merged/putty.mp4",
+    "media/services/merged/paint.mp4",
+    "media/services/merged/tile.mp4",
+    "media/services/merged/electric.mp4",
+    "media/services/merged/plumbing.mp4",
+    "media/services/merged/floors.mp4",
+    "media/services/merged/welding.mp4",
+    "media/services/merged/general.mp4"
   ];
 
   const cards = servicesGrid.querySelectorAll(".card");
 
   cards.forEach((card, index) => {
-    const group = serviceMedia[index] || serviceMedia[0];
-    const clips = group.files;
-    if (!clips.length) return;
-
     const media = document.createElement("div");
     media.className = "service-media";
 
-    const videoA = document.createElement("video");
-    const videoB = document.createElement("video");
+    const video = document.createElement("video");
+    video.muted = true;
+    video.defaultMuted = true;
+    video.loop = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.setAttribute("autoplay", "");
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+    video.setAttribute("preload", "auto");
+    video.setAttribute("aria-label", "Пример выполненных работ");
+    video.classList.add("is-visible");
+    video.src = mergedVideos[index % mergedVideos.length];
 
-    [videoA, videoB].forEach((video) => {
-      video.muted = true;
-      video.defaultMuted = true;
-      video.loop = true;
-      video.autoplay = true;
-      video.playsInline = true;
-      video.setAttribute("autoplay", "");
-      video.setAttribute("muted", "");
-      video.setAttribute("playsinline", "");
-      video.setAttribute("webkit-playsinline", "");
-      video.setAttribute("preload", "auto");
-      video.setAttribute("aria-label", "Пример выполненных работ");
-    });
-
-    let clipIndex = 0;
-    let activeVideo = videoA;
-    let hiddenVideo = videoB;
-    let isSwitching = false;
-
-    activeVideo.src = clips[clipIndex];
-    activeVideo.classList.add("is-visible");
-
-    media.appendChild(videoA);
-    media.appendChild(videoB);
+    media.appendChild(video);
     card.prepend(media);
-
-    activeVideo.play().catch(() => {});
     card.classList.add("is-active");
-
-    setInterval(() => {
-      if (isSwitching) return;
-      isSwitching = true;
-
-      clipIndex = (clipIndex + 1) % clips.length;
-      hiddenVideo.src = clips[clipIndex];
-      hiddenVideo.load();
-
-      const doSwitch = () => {
-        hiddenVideo.removeEventListener("canplay", doSwitch);
-        hiddenVideo.currentTime = 0;
-        hiddenVideo.play().catch(() => {});
-
-        requestAnimationFrame(() => {
-          activeVideo.classList.remove("is-visible");
-          hiddenVideo.classList.add("is-visible");
-        });
-
-        const tmp = activeVideo;
-        activeVideo = hiddenVideo;
-        hiddenVideo = tmp;
-        isSwitching = false;
-      };
-
-      if (hiddenVideo.readyState >= 2) {
-        doSwitch();
-      } else {
-        hiddenVideo.addEventListener("canplay", doSwitch, { once: true });
-      }
-    }, 2400);
+    video.play().catch(() => {});
   });
 }
 
@@ -404,3 +321,4 @@ if (headerWrap && header) {
     });
   }
 }
+
